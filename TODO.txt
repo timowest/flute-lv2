@@ -1,0 +1,21 @@
+DONE : ADSR envelope (Attack - Decay - Release)
+
+DONE : Sine example
+
+DONE : Flute from STK
+
+DONE : drop FluteVoice
+
+DONE : integrate flute.dsp (FAUST) with Flute/FluteVoice
+
+DONE : use flute.ttl as master for controls generated full dsp based on it
+
+DONE : figure out proper jet/bore ratios
+
+TODO : Improve tonehole model
+
+TODO : Vibrato MIDI control
+
+TODO : control ports for freeverb and stereoizer
+
+TODO : Pitchbend control

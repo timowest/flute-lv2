@@ -1,15 +1,14 @@
-Needs cxxtest and lv2-c++-tools installed
+flute-lv2 is an LV2 instrument plugin based on a Waveguide model of a flute.
 
+The model is based on the following publications :
 
-                  min   holes  
+ [0] Waveguide simulation of neolithic chinese flutes (2001)
+     Patricio de la Cuadra, Tamara Smyth, Chris Chafe, Han Baoqiang
 
-Piccolo:          72    12
-Flute:            60    12
-Bass Flute:       48    12 
-Contrabass Flute: 36    12
+ [1] An Improved Digital Waveguide model of a Flute - Implementation issues (1996)
+     Vesa Välimäki, Rami Hänninen, Matti Karjalainen
 
+ [2] On the Oscillations of Musical Instruments (1983)
 
-* Model register holes?
-
-* More noise with higher pitch
+ [3] A real-time DSP implementation of a flute model (1992)
 

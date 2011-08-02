@@ -1,7 +1,7 @@
 // same as flute.dsp but instead of GUI elements only default values applied
-import("flute.lib");
+import("flutelib.dsp");
 import("instrument.lib");
-import("params2.lib");
+import("params2.dsp");
 
 process = flute : scale : stereo
 with {

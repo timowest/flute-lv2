@@ -43,7 +43,8 @@ install: $(BUNDLE)
 	cp -R $(BUNDLE) $(INSTALL_DIR)
 
 svg:
-	faust -svg -sn faust/flute.dsp
+	rm -rf faust/*-svg    
+	faust -svg -sn faust/flute2.dsp
 
 clean:
 	rm -rf $(BUNDLE) *.so *.out *.wav gen/* alsa-gtk 

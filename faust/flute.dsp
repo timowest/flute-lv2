@@ -1,7 +1,7 @@
 // Waveguide flute
-import("flute.lib");
+import("flutelib.dsp");
 import("instrument.lib");
-import("params.lib");
+import("params.dsp");
 
 process = flute : scale : stereo
 with {

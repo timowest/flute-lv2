@@ -1,6 +1,6 @@
 // generated from flute.ttl
 jetRatio = hslider("jetRatio", 1.0, 1.0, 8.0, 1.0);
-noiseGain = hslider("noiseGain", 4.0, 0.0, 8.0, 0.1);
+noiseGain = hslider("noiseGain", 0.02, 0.0, 8.0, 0.1);
 pressure = hslider("pressure", 0.99, 0.0, 1.5, 0.01);
 vibratoFreq = hslider("vibratoFreq", 6.0, 1.0, 15.0, 0.5);
 vibratoGain = hslider("vibratoGain", 0.05, 0.0, 1.0, 0.01);
@@ -19,6 +19,9 @@ maxPitch = hslider("maxPitch", 100.0, 60.0, 127.0, 1.0);
 reflectionGain = hslider("reflectionGain", -0.359, -1.0, 1.0, 0.01);
 feedbackGain = hslider("feedbackGain", -0.97, -1.0, 1.0, 0.01);
 directFeedbackGain = hslider("directFeedbackGain", -0.1, -1.0, 1.0, 0.1);
-voicedGain = hslider("voicedGain", 0.02, 0.0, 1.0, 0.01);
-jetOffset = hslider("jetOffset", 0.0, 0.0, 1.0, 0.01);
-jetGain = hslider("jetGain", -4.0, -8.0, 8.0, 0.1);
+voicedGain = hslider("voicedGain", 0.7, 0.0, 1.0, 0.01);
+sigmOffset = hslider("sigmOffset", 0.0, 0.0, 1.0, 0.01);
+sigmOut = hslider("sigmOut", -4.0, -8.0, 8.0, 0.1);
+sigmIn = hslider("sigmIn", 1.0, -8.0, 8.0, 0.1);
+reflectionFilterCutoff = hslider("reflectionFilterCutoff", 2000.0, 500.0, 4000.0, 10.0);
+boundaryLossFilterCutoff = hslider("boundaryLossFilterCutoff", 2000.0, 500.0, 4000.0, 10.0);

@@ -1,6 +1,6 @@
 // generated from flute.ttl
 jetRatio = 1.0;
-noiseGain = 4.0;
+noiseGain = 0.02;
 pressure = 0.99;
 vibratoFreq = 6.0;
 vibratoGain = 0.05;
@@ -19,6 +19,9 @@ maxPitch = 100.0;
 reflectionGain = -0.359;
 feedbackGain = -0.97;
 directFeedbackGain = -0.1;
-voicedGain = 0.02;
-jetOffset = 0.0;
-jetGain = -4.0;
+voicedGain = 0.7;
+sigmOffset = 0.0;
+sigmOut = -4.0;
+sigmIn = 1.0;
+reflectionFilterCutoff = 2000.0;
+boundaryLossFilterCutoff = 2000.0;

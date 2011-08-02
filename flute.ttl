@@ -64,7 +64,7 @@
         lv2:minimum 1.0; lv2:maximum 8.0; lv2:default 1.0; ext:step 1.0; ],
 
     [ a lv2:ControlPort, lv2:InputPort; lv2:index 4;  lv2:symbol "noiseGain";       lv2:name "Noise Gain"; 
-        lv2:minimum 0.0; lv2:maximum 8.0; lv2:default 4.0; ext:step 0.1; ],
+        lv2:minimum 0.0; lv2:maximum 8.0; lv2:default 0.2; ext:step 0.1; ],
 
     [ a lv2:ControlPort, lv2:InputPort; lv2:index 5;  lv2:symbol "pressure";       lv2:name "Pressure"; 
         lv2:minimum 0.0; lv2:maximum 1.5; lv2:default 0.99; ext:step 0.01; ],
@@ -121,10 +121,19 @@
         lv2:minimum -1.0; lv2:maximum 1.0; lv2:default -0.1; ext:step 0.1;],
 
     [ a lv2:ControlPort, lv2:InputPort; lv2:index 23;  lv2:symbol "voicedGain";       lv2:name "Voiced gain"; 
-        lv2:minimum 0.0; lv2:maximum 1.0; lv2:default 0.02; ext:step 0.01;],
+        lv2:minimum 0.0; lv2:maximum 1.0; lv2:default 0.7; ext:step 0.01;],
 
-    [ a lv2:ControlPort, lv2:InputPort; lv2:index 24;  lv2:symbol "jetOffset";       lv2:name "Jet offset"; 
+    [ a lv2:ControlPort, lv2:InputPort; lv2:index 24;  lv2:symbol "sigmOffset";       lv2:name "Sigmoid offset"; 
         lv2:minimum 0.0; lv2:maximum 1.0; lv2:default 0.0; ext:step 0.01;],
 
-    [ a lv2:ControlPort, lv2:InputPort; lv2:index 25;  lv2:symbol "jetGain";       lv2:name "Jet gain"; 
-        lv2:minimum -8.0; lv2:maximum 8.0; lv2:default -4.0; ext:step 0.1;].
+    [ a lv2:ControlPort, lv2:InputPort; lv2:index 25;  lv2:symbol "sigmOut";       lv2:name "Sigmoid out"; 
+        lv2:minimum -8.0; lv2:maximum 8.0; lv2:default -4.0; ext:step 0.1;],
+
+    [ a lv2:ControlPort, lv2:InputPort; lv2:index 26;  lv2:symbol "sigmIn";       lv2:name "Sigmoid in"; 
+        lv2:minimum -8.0; lv2:maximum 8.0; lv2:default 1.0; ext:step 0.1;],
+
+    [ a lv2:ControlPort, lv2:InputPort; lv2:index 27;  lv2:symbol "reflectionFilterCutoff";       lv2:name "Reflection filter cutoff"; 
+        lv2:minimum 500.0; lv2:maximum 4000.0; lv2:default 2000.0; ext:step 10.0;],
+
+    [ a lv2:ControlPort, lv2:InputPort; lv2:index 28;  lv2:symbol "boundaryLossFilterCutoff";       lv2:name "Boundary loss filter cutoff"; 
+        lv2:minimum 500.0; lv2:maximum 4000.0; lv2:default 2000.0; ext:step 10.0;].

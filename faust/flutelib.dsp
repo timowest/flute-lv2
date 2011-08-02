@@ -56,25 +56,24 @@ envelopeBreath = pressure * adsr(envAttack, envDecay, 80, envRelease, gate)
 
 };
 
-jetDelay = fdelay(4096, SR / freq / jetRatio);
+jetDelay = fdelay(4096, SR / freq * jetRatio);
 
 upperDelay = fdelay(4096, SR / freq * 0.5); 
 
 lowerDelay  = fdelay(4096, (SR / freq * 0.5) - 1.0);
 
 // (1.8417 + z^-1) / 1
-// TODO : improve
-reflectionFilter(x) = 1.8417 * x + x';
+//reflectionFilter(x) = 1.8417 * x + x';
+reflectionFilter = lowpass(1, reflectionFilterCutoff);
 
 // 0.376 / (1 - 0.6 * z^-1)
-// TODO : improve
-boundaryLossFilter = onePole(0.376, 0.6);
+//boundaryLossFilter = onePole(0.376, 0.6);
+boundaryLossFilter = lowpass(1, boundaryLossFilterCutoff);
 
 envelope = envelopeBreath + envelopeBreath * (vibratoGain * vibrato);
 
 // jet nonlinearity
-//   references : [2], [3]
-jetNonlinearity = jetOffset + jetGain * tanh(_);
+jetNonlinearity = sigmOut * tanh(sigmOffset + sigmIn * _);
 
 // jetNonlinearity = sigmout * tanh(ampl * sigmoffset - signmin * _)
 //   references : [1]

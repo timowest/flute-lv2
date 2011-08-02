@@ -63,11 +63,11 @@ cppFile = open("gen/FluteMeta.h", "w")
 cppFile.write("\n".join(meta_cpp))
 cppFile.close()
 
-faustFile = open("faust/params.lib", "w")
+faustFile = open("faust/params.dsp", "w")
 faustFile.write("\n".join(meta_faust))
 faustFile.close()
 
-faustFile2 = open("faust/params2.lib", "w")
+faustFile2 = open("faust/params2.dsp", "w")
 faustFile2.write("\n".join(meta_faust2))
 faustFile2.close()
 

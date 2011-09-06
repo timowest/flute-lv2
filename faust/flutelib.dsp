@@ -62,13 +62,13 @@ upperDelay = fdelay(4096, SR / freq * 0.5);
 
 lowerDelay  = fdelay(4096, (SR / freq * 0.5) - 1.0);
 
-// (1.8417 + z^-1) / 1
-//reflectionFilter(x) = 1.8417 * x + x';
+// FIXME
 reflectionFilter = lowpass(1, reflectionFilterCutoff);
+//reflectionFilter(x) = 0.5 * x + 0.5 * x';
 
-// 0.376 / (1 - 0.6 * z^-1)
-//boundaryLossFilter = onePole(0.376, 0.6);
+// FIXME
 boundaryLossFilter = lowpass(1, boundaryLossFilterCutoff);
+//boundaryLossFilter(x) = 0.9 * x + 0.1 * x';
 
 envelope = envelopeBreath + envelopeBreath * (vibratoGain * vibrato);
 

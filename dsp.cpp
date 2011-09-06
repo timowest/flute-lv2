@@ -1,10 +1,10 @@
 #include <math.h>
 
-inline float max(float x, float y) {
+float max(float x, float y) {
     return fmaxf(x,y);
 }
 
-inline float min(float x, float y) {
+float min(float x, float y) {
     return fminf(x,y);
 }
 

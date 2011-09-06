@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 int main() {
-    int bufferSize = 88200;
+    int bufferSize = 44100;
     float buffer_l[bufferSize];    
     float buffer_r[bufferSize];    
 
@@ -18,7 +18,7 @@ int main() {
     }
 
     // init Flute
-    Flute flute(44100.0f);
+    Flute flute(22050.0f);
     // connect audio ports
     flute.connect_port(p_audio_l, &buffer_l[0]);
     flute.connect_port(p_audio_r, &buffer_r[0]);
@@ -38,16 +38,16 @@ int main() {
     //int format=SF_FORMAT_WAV | SF_FORMAT_PCM_16;
     int format = SF_FORMAT_WAV | SF_FORMAT_FLOAT;
     int channels = 1;
-    int sampleRate = 44100;
+    int sampleRate = 22050;
 
     const char* names[] = {"c","c#","d","d#","e","f","f#","g","g#","a","a#","b"};
    
     for (int i = 0; i < 12; i++) {
         // render output
         flute.on(60 + i, 64);
-        flute.render(0, 44100);
+        flute.render(0, 22050);
         flute.off(64 + i);
-        flute.render(44100, bufferSize);
+        flute.render(22050, bufferSize);
 
         // write to WAV
         char filename[10];

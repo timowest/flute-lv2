@@ -20,13 +20,16 @@ standalone:
 	faust -a alsa-gtk.cpp faust/flute.dsp > gen/flute-alsa-gtk.cpp
 	g++ -Wall gen/flute-alsa-gtk.cpp  `pkg-config --cflags --libs alsa` `pkg-config --cflags --libs gtk+-2.0` -lm -I/usr/local/lib/faust/ -o alsa-gtk
 
-gen/dsp.cpp:
+gen:
+	mkdir gen
+
+gen/dsp.cpp: gen
 	faust -a minimal.cpp faust/flute.dsp > gen/dsp.cpp
 
-gen/Flute.peg:
+gen/Flute.peg: gen
 	lv2peg flute.ttl gen/Flute.peg
 
-gen/FluteMeta.h:
+gen/FluteMeta.h: gen
 	python portmeta.py
 
 test: runner.cpp gen/Flute.peg gen/FluteMeta.h gen/dsp.cpp

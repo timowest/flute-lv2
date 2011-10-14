@@ -60,6 +60,10 @@ for i in range(3, maxIndex + 1):
 meta_cpp.append("};")
 meta_cpp.append("#endif")
 
+dir = "gen"
+if not os.path.exists(dir):
+    os.makedirs(dir)
+
 cppFile = open("gen/FluteMeta.h", "w")
 cppFile.write("\n".join(meta_cpp))
 cppFile.close()

@@ -1,4 +1,5 @@
 #include <math.h>
+#include <cstdlib>
 
 float max(float x, float y) {
     return fmaxf(x,y);

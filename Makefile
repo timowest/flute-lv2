@@ -1,5 +1,9 @@
 BUNDLE = lv2-Flute.lv2
 INSTALL_DIR = /usr/local/lib/lv2
+LV2 = `pkg-config --cflags --libs lv2-plugin`
+LV2_GUI = `pkg-config --cflags --libs lv2-gui`
+GTKMM = `pkg-config --cflags --libs gtkmm-2.4`
+ALSA_GTK = `pkg-config --cflags --libs alsa` `pkg-config --cflags --libs gtk+-2.0`
 
 $(BUNDLE): manifest.ttl flute.ttl Flute.so FluteGUI.so
 	rm -rf $(BUNDLE)
@@ -7,18 +11,18 @@ $(BUNDLE): manifest.ttl flute.ttl Flute.so FluteGUI.so
 	cp $^ $(BUNDLE)
 
 Flute.so: Flute.cpp gen/Flute.peg gen/FluteMeta.h gen/dsp.cpp
-	g++ -shared -Wall -fPIC -DPIC Flute.cpp dsp.cpp `pkg-config --cflags --libs paq` -lm -I/usr/local/lib/faust/ -o Flute.so
+	g++ -shared -Wall -fPIC -DPIC Flute.cpp dsp.cpp $(LV2) -lm -I/usr/local/lib/faust/ -o Flute.so
 
 FluteGUI.so: FluteGUI.cpp gen/Flute.peg gen/FluteMeta.h
-	g++ -shared -Wall -fPIC -DPIC FluteGUI.cpp `pkg-config --cflags --libs paq` `pkg-config --cflags --libs gtkmm-2.4` -o FluteGUI.so
+	g++ -shared -Wall -fPIC -DPIC FluteGUI.cpp $(LV2) $(LV2_GUI) $(GTKMM) -o FluteGUI.so
 
 demo: gen/Flute.peg gen/FluteMeta.h gen/dsp.cpp
-	g++ -Wall demos/LongNote.cpp Flute.cpp dsp.cpp `pkg-config --cflags --libs paq` -lm -I/usr/local/lib/faust/ -lsndfile -o demo.out
+	g++ -Wall demos/LongNote.cpp Flute.cpp dsp.cpp $(LV2) -lm -I/usr/local/lib/faust/ -lsndfile -o demo.out
 	./demo.out
 
 standalone: 
 	faust -a alsa-gtk.cpp faust/flute.dsp > gen/flute-alsa-gtk.cpp
-	g++ -Wall gen/flute-alsa-gtk.cpp  `pkg-config --cflags --libs alsa` `pkg-config --cflags --libs gtk+-2.0` -lm -I/usr/local/lib/faust/ -o alsa-gtk
+	g++ -Wall gen/flute-alsa-gtk.cpp  $(ALSA_GTK) -lm -I/usr/local/lib/faust/ -o alsa-gtk
 
 gen:
 	mkdir gen
